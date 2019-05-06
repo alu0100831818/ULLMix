@@ -1,0 +1,105 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+*body {
+  margin: 0;
+}
+
+#navbar {
+  overflow: hidden;
+  background-color: #099;
+  position: fixed;
+  top: 0;
+  height: 25px;
+  width: 700px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  padding-left: 20px;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #666;
+  text-align: center;
+  padding-right: 20px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.main {
+  padding: 16px;
+  margin-top: 30px;
+  height: 700px;
+  width: 600px;
+  overflow: auto;
+  cursor: grab;
+  cursor: -o-grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.main img {
+ height: auto;
+  width: 100%;
+}
+
+.button {
+  width: 30px;
+  height: 60px;
+}
+</style>
+</head>
+<body>
+
+<script type="text/javascript" src="https://cdn.rawgit.com/asvd/dragscroll/master/dragscroll.js"></script>
+
+<body>
+
+  <div id="navbar">
+    <button type="button" onclick="zoomin()"> <strong>+</strong></button>
+    <button type="button" onclick="zoomout()"> <strong>-</strong></button>
+  </div>
+
+  <div class="main dragscroll">
+    <img id="map" src="https://firebasestorage.googleapis.com/v0/b/elhierroapp.appspot.com/o/s_copia.php.svg?alt=media&token=94a0f69c-bc19-472f-b405-af70daf69701" />
+  </div>
+
+
+
+
+</body>
+</html>
+
+<script>
+function zoomin() {
+  var myImg = document.getElementById("map");
+  var currWidth = myImg.clientWidth;
+  if (currWidth == 1000) return false;
+  else {
+    myImg.style.width = (currWidth + 200) + "px";
+  }
+}
+
+function zoomout() {
+  var myImg = document.getElementById("map");
+  var currWidth = myImg.clientWidth;
+  if (currWidth <= 500) return false;
+  else {
+    myImg.style.width = (currWidth - 200) + "px";
+  }
+}
+</script>
